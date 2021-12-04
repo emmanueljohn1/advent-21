@@ -13,7 +13,7 @@ pub fn read_file(filename: &str) -> Vec<i32> {
     return data;
 }
 
-pub fn print_vec (vec: &Vec<i32>) {
+pub fn print_vec (vec: &Vec<u32>) {
     for i in 0..vec.len() {
         println!("{}", vec[i]);
     }
