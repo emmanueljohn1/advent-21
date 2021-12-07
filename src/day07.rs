@@ -35,12 +35,13 @@ pub fn run() -> Result<(), Error> {
     for j in positions {
         let mut sum: i64 = 0;
         for i in &nums {
-            let cost = 0;
             let diff = (i - j).abs();
-            let mut cost: i64 = 0;
-            for x in 1..(diff + 1) {
-                cost += x as i64;
-            }
+            let mut cost: i64 =( (diff * (diff+1)) / 2) as i64; // After looking at Cale's answer
+            // How I was computing it before :
+            // for x in 1..(diff + 1) {
+            //     cost += x as i64;
+            // }
+
             sum += cost;
         }
 
