@@ -59,6 +59,3 @@ fn string_to_vec(line: &String, delim: &str) -> Vec<i32> {
         .map(|val| val.trim().to_string().parse::<i32>().unwrap())
         .collect::<Vec<i32>>();
 }
-
-
-
