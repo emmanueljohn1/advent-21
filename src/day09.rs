@@ -55,8 +55,6 @@ pub fn run() -> Result<(), Error> {
     println!("low points height sum {}", sum);
 
     // ====================================== Part 2 - using DFS ============================
-    // build undirected graph
-    // let graph = vec![10];
 
     let mut basin_size_product = 1;
     let mut sizes = BinaryHeap::new();
