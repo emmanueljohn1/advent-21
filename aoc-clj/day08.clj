@@ -16,7 +16,7 @@
         fives (filter (fn [[ct _]] (= ct 5)) counts)
         sixes (filter (fn [[ct _]] (= ct 6)) counts)
 
-        ;; There's got to be a better way to do this mess
+        ;; FIXME There's got to be a better way to do this mess
         two (->
               (filter (fn [[ct val]]
                         (= (set diff)
