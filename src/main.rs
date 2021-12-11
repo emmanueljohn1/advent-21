@@ -15,9 +15,11 @@ mod day07;
 mod day09;
 mod day10;
 mod day10_02;
+mod day11;
+mod day11_02;
 
 use std::io::Error;
-use crate::day10_02::run;
+use crate::day11::run;
 
 fn main() -> Result<(), Error> {
     return run();
