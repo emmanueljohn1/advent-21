@@ -6,7 +6,7 @@ use itertools::{Itertools, max, min};
 
 pub fn run() -> Result<(), Error> {
     println!("Running...");
-    let path = "test_inputs/example_15.txt";
+    let path = "test_inputs/input_15.txt";
     let buffered = BufReader::new(File::open(path).expect("no such file"));
     let mut grid = parse_data(buffered);
     let p = grid.len() as u32;
