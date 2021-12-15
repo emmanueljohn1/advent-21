@@ -4,24 +4,6 @@ use std::io::{BufRead, BufReader, Error};
 use array2d::Array2D;
 use itertools::{Itertools, max, min};
 
-
-fn neighbors(array: &Vec<Vec<u32>>, i: i32, j: i32) -> Vec<Vec<i32>> {
-    let positions: Vec<[i32; 2]> = vec![[-1, 0], [0, -1], [1, 0], [0, 1]];
-    let values = positions.iter().fold(vec![], |mut acc, val| {
-        let x = i + val[0];
-        let y = j + val[1];
-        if (x >= 0 && x < array.len() as i32) &&
-            (y >= 0 && y < array[0].len() as i32) {
-            acc.push(vec![x, y]);
-        }
-
-        return acc;
-    });
-
-    return values;
-}
-
-
 pub fn run() -> Result<(), Error> {
     println!("Running...");
     let path = "test_inputs/input_15.txt";
