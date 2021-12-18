@@ -1,6 +1,6 @@
-use std::collections::{BinaryHeap, HashMap, HashSet, VecDeque};
 use std::fs::File;
 use std::io::{BufRead, BufReader, Error};
+
 use array2d::Array2D;
 use itertools::{Itertools, max, min};
 
@@ -16,7 +16,7 @@ pub fn run() -> Result<(), Error> {
     let m = q * 5;
     let mut new_grid: Vec<Vec<u32>> = vec![vec![0; m as usize]; n as usize];
 
-    // This brute force solution computes the min cost of a node as the min of the min_cost of nodes on it's left and and above it
+    // This brute force solution computes the min cost of a node as the min of the min_cost of nodes on it's left and above it
     for i in 0..n {
         for j in 0..m {
             if i == 0 && j == 0 {
@@ -40,13 +40,11 @@ pub fn run() -> Result<(), Error> {
         }
     }
 
-    // println!("grid {:?}", new_grid); // Uncomment to print grid
-
     // Works for example but doesn't work for actual input
     println!("min cost with last block sum {}", new_grid[n as usize - 1][m as usize - 1]);
 
     // This works for the input but not for example
-    // I'm basically substracting the value of the last node from the total cost
+    // I'm basically subtracting the value of the last node from the total cost
     println!("min cost without last {}", new_grid[n as usize - 1][m as usize - 1] - infer_value(&mut grid, p, q, n-1, m-1));
 
     println!("min cost for first tile block (part 1) {}", new_grid[p as usize - 1][q as usize - 1]); // Works for example but doesn't work for actual input
@@ -65,7 +63,7 @@ fn infer_value(grid: &mut Vec<Vec<u32>>, num_rows: u32, num_cols0: u32, row: u32
         let y_prime = col - (num_cols0 * qy);
         value_ij = grid[x_prime as usize][y_prime as usize] + qx + qy;
         if value_ij > 9 {
-            value_ij = value_ij % 9;
+            value_ij = value_ij % 9; // FIXME - This formula is inaccurate
         }
     };
     value_ij
